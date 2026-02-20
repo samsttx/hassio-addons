@@ -1,0 +1,55 @@
+name: "Tinyauth"
+description: "A lightweight, powerful authentication proxy with OAuth2, LDAP, and local user support."
+url: "https://github.com/samsttx/hassio-addons/tree/main/tinyauth"
+version: "4.1.0"
+slug: "tinyauth"
+webui: "[PROTO:ssl]://[HOST]:[PORT:3000]"
+udev: true
+arch:
+  - amd64
+init: false
+ports:
+  3000/tcp: 3000
+map:
+  - config:rw
+options:
+  app_url: ""
+  log_level: "info"
+schema:
+  app_title: str?
+  app_url: str
+  background_image: str?
+  database_path: str?
+  disable_analytics: bool?
+  disable_resources: bool?
+  disable_ui_warnings: bool?
+  forgot_password_message: str?
+  log_json: bool?
+  log_level: list(trace|debug|info|notice|warning|error|fatal)
+  login_max_retries: int?
+  login_timeout: str?
+  oauth_auto_redirect: str?
+  oauth_whitelist:
+    - str?
+  secure_cookie: bool?
+  session_expiry: str?
+  trusted_proxies: str?
+  users:
+    - str?
+  ldap_address: str?
+  ldap_base_dn: str?
+  ldap_bind_dn: str?
+  ldap_bind_password: password?
+  ldap_insecure: bool?
+  ldap_search_filter: str?
+  providers:
+    - id: str
+      client_id: str
+      client_secret: password
+      name: str?
+      auth_url: str?
+      token_url: str?
+      user_info_url: str?
+      redirect_url: str?
+      scopes: str?
+      insecure_skip_verify: bool?

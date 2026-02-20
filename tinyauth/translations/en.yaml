@@ -1,0 +1,79 @@
+---
+configuration:
+  app_title:
+    name: Application Title
+    description: The title shown on the login page.
+  app_url:
+    name: Application URL
+    description: The full public URL of your Tinyauth instance (e.g., https://auth.mydomain.com).
+  background_image:
+    name: Background Image
+    description: URL to a custom background image for the login page.
+  database_path:
+    name: Database Path
+    description: Path where the SQLite database will be stored (default is /config/tinyauth.db).
+  disable_analytics:
+    name: Disable Analytics
+    description: Disable the collection of anonymous analytics.
+  disable_resources:
+    name: Disable Resources
+    description: Disable loading of external resources like fonts.
+  disable_ui_warnings:
+    name: Disable UI Warnings
+    description: Disable warnings in the user interface.
+  forgot_password_message:
+    name: Forgot Password Message
+    description: A message to show to users who forgot their password.
+  log_json:
+    name: JSON Logging
+    description: Output logs in JSON format.
+  log_level:
+    name: Log Level
+    description: Adjust the verbosity of logs.
+  login_max_retries:
+    name: Login Max Retries
+    description: Maximum number of login attempts before lockout.
+  login_timeout:
+    name: Login Timeout
+    description: Duration of the lockout after too many failed login attempts.
+  oauth_auto_redirect:
+    name: OAuth Auto Redirect
+    description: Automatically redirect to the single configured OAuth provider.
+  oauth_whitelist:
+    name: OAuth Whitelist
+    description: Comma-separated list of email addresses or domains allowed to log in via OAuth.
+  secure_cookie:
+    name: Secure Cookie
+    description: Set the 'Secure' flag on the session cookie.
+  session_expiry:
+    name: Session Expiry
+    description: Duration for which a user session is valid.
+  trusted_proxies:
+    name: Trusted Proxies
+    description: Comma-separated list of trusted proxy IP addresses.
+  users:
+    name: Local Users
+    description: Comma-separated list of local users (username:password_hash).
+  ldap_address:
+    name: LDAP Address
+    description: Address of the LDAP server (e.g., ldap.example.com:389).
+  ldap_base_dn:
+    name: LDAP Base DN
+    description: The base DN for user searches.
+  ldap_bind_dn:
+    name: LDAP Bind DN
+    description: The DN to bind with for searching.
+  ldap_bind_password:
+    name: LDAP Bind Password
+    description: The password for the bind DN.
+  ldap_insecure:
+    name: LDAP Insecure
+    description: Allow insecure connections to the LDAP server (not recommended).
+  ldap_search_filter:
+    name: LDAP Search Filter
+    description: The filter to use for finding users.
+  providers:
+    name: OAuth Providers
+    description: Configuration for OAuth2/OIDC providers (Google, GitHub, etc.).
+network:
+  3000/tcp: Tinyauth Web Interface
