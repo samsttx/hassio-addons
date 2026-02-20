@@ -45,3 +45,39 @@ You can add multiple OAuth providers (Google, GitHub, Authelia, etc.) in the **p
 - **scopes**: Override default OAuth scopes.
 - **redirect_url**: Explicitly set the redirect URL if auto-detection fails.
 - **insecure_skip_verify**: Set to `true` if your provider uses a self-signed certificate.
+
+## Nginx Proxy Manager Configuration
+
+To use Tinyauth with [Nginx Proxy Manager](https://nginxproxymanager.com/), add the following configuration to your Nginx Proxy Manager advanced configuration. For more detailed information, see the [Tinyauth Nginx Proxy Manager guide](https://tinyauth.app/docs/guides/nginx-proxy-manager/).
+
+```nginx
+# Root location
+location / {
+  # Pass the request to the app
+  proxy_pass          $forward_scheme://$server:$port;
+
+  # Add other app-specific config here
+
+  # Tinyauth auth request
+  auth_request /tinyauth;
+  error_page 401 = @tinyauth_login;
+}
+
+# Tinyauth auth request
+location /tinyauth {
+  # Pass request to Tinyauth
+  proxy_pass http://0fe23d3d-tinyauth:3000/api/auth/nginx;
+
+  # Pass the request headers
+  proxy_set_header x-forwarded-proto $scheme;
+  proxy_set_header x-forwarded-host $http_host;
+  proxy_set_header x-forwarded-uri $request_uri;
+}
+
+# Tinyauth login redirect
+location @tinyauth_login {
+  return 302 https://change.your-domain.com/login?redirect_uri=https://$http_host$request_uri;
+}
+```
+
+**Important**: Replace `0fe23d3d-tinyauth` with your actual Tinyauth container name and `change.your-domain.com` with your Tinyauth instance URL.
