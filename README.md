@@ -9,7 +9,12 @@ Welcome to my Home Assistant add-on repository.
 ## Add-ons
 
 ### [Tinyauth](./tinyauth)
+
 A lightweight, powerful authentication proxy with OAuth2, LDAP, and local user support.
+
+### [CouchDB](./couchdb)
+
+Apache CouchDB — document-oriented NoSQL database with HTTP/JSON API and Fauxton web UI.
 
 [repository-badge]: https://my.home-assistant.io/badges/supervisor_add_addon_repository.svg
 [repository-url]: https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository_url=https%3A%2F%2Fgithub.com%2Fsamsttx%2Fhassio-addons

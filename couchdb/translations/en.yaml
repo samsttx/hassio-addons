@@ -1,0 +1,19 @@
+---
+configuration:
+  username:
+    name: Admin Username
+    description: The admin username created on first boot.
+  password:
+    name: Admin Password
+    description: The admin password. Required on first boot to bootstrap the admin account.
+  secret:
+    name: Cluster Secret
+    description: Shared secret for session cookies (and future cluster auth). Leave blank to auto-generate and persist under /config/couchdb/.secret.
+  log_level:
+    name: Log Level
+    description: CouchDB log verbosity (debug, info, notice, warning, error, critical, none).
+  bind_address:
+    name: Bind Address
+    description: HTTP bind address. Defaults to '0.0.0.0' (all IPv4 interfaces). Use '127.0.0.1' to restrict to loopback.
+network:
+  5984/tcp: CouchDB HTTP API and Fauxton UI

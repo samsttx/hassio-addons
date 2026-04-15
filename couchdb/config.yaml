@@ -1,0 +1,24 @@
+name: "CouchDB"
+description: "Apache CouchDB — document-oriented NoSQL database with HTTP/JSON API and Fauxton web UI."
+url: "https://github.com/samsttx/hassio-addons/tree/main/couchdb"
+version: "3.4.2"
+slug: "couchdb"
+webui: "http://[HOST]:[PORT:5984]/_utils/"
+arch:
+  - amd64
+  - aarch64
+init: false
+ports:
+  5984/tcp: 5984
+map:
+  - config:rw
+options:
+  username: "admin"
+  password: ""
+  log_level: "info"
+schema:
+  username: str
+  password: password
+  secret: password?
+  log_level: list(debug|info|notice|warning|error|critical|none)
+  bind_address: str?
