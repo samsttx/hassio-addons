@@ -1,0 +1,91 @@
+---
+configuration:
+  max_length:
+    name: Max Secret Length
+    description: Maximum secret length in bytes. Defaults to 10000.
+  max_file_size:
+    name: Max File Size
+    description: Maximum encrypted file upload size in bytes. Capped at 1 MiB without a license key.
+  default_expiry:
+    name: Default Expiry
+    description: Default secret lifetime. One of '1h', '1d', '1w'.
+  log_level:
+    name: Log Level
+    description: Log verbosity (trace, debug, info, warn, error, fatal, panic).
+  force_onetime_secrets:
+    name: Force One-Time Secrets
+    description: Force every new secret to be one-time readable.
+  disable_upload:
+    name: Disable Upload
+    description: Disable file uploads. Text secrets still work.
+  read_only:
+    name: Read-Only Mode
+    description: Disable creating new secrets. Existing ones remain readable.
+  disable_features:
+    name: Disabled Features
+    description: Comma-separated list of UI features to hide.
+  no_language_switcher:
+    name: Hide Language Switcher
+    description: Hide the language switcher in the UI.
+  cors_allow_origin:
+    name: CORS Allow Origin
+    description: Allowed Origin for cross-origin requests. Defaults to '*'.
+  trusted_proxies:
+    name: Trusted Proxies
+    description: List of reverse-proxy IPs/CIDRs whose X-Forwarded-For headers Yopass should trust.
+  privacy_notice_url:
+    name: Privacy Notice URL
+    description: Link to a privacy notice page, shown in the footer.
+  imprint_url:
+    name: Imprint URL
+    description: Link to an imprint page, shown in the footer.
+  prefetch_secret:
+    name: Prefetch Secret
+    description: Prefetch secret metadata on page load. Defaults to true.
+  file_store_enabled:
+    name: Enable Disk File Store
+    description: Persist large encrypted file uploads under /config/yopass/files. When off, files live only in memcached.
+  cleanup_interval:
+    name: Cleanup Interval
+    description: How often expired file-store entries are purged (e.g. '60s', '5m').
+  license_key:
+    name: License Key
+    description: Commercial license key that unlocks OIDC, branding, audit log, and the 1 MiB file-size cap removal.
+  app_name:
+    name: App Name
+    description: Custom application name shown in the UI. Requires a license key.
+  logo_url:
+    name: Logo URL
+    description: URL of a custom logo image. Requires a license key.
+  theme_light:
+    name: Light Theme
+    description: DaisyUI light theme name. Requires a license key.
+  theme_dark:
+    name: Dark Theme
+    description: DaisyUI dark theme name. Requires a license key.
+  oidc_issuer:
+    name: OIDC Issuer
+    description: OIDC provider issuer URL. Requires a license key.
+  oidc_client_id:
+    name: OIDC Client ID
+    description: OIDC client ID registered with your provider.
+  oidc_client_secret:
+    name: OIDC Client Secret
+    description: OIDC client secret registered with your provider.
+  oidc_redirect_url:
+    name: OIDC Redirect URL
+    description: OIDC redirect URL, typically '<frontend_url>/oidc/callback'.
+  oidc_allowed_domains:
+    name: OIDC Allowed Domains
+    description: List of email domains allowed to authenticate. Empty = all allowed.
+  require_auth:
+    name: Require Authentication
+    description: Require OIDC login to create or read secrets.
+  frontend_url:
+    name: Frontend URL
+    description: Public URL of this Yopass instance (used in OIDC redirects and sharing links).
+  audit_log:
+    name: Enable Audit Log
+    description: Write an audit log of secret create/read events to /config/yopass/audit.log. Requires a license key.
+network:
+  1337/tcp: Yopass HTTP UI and API

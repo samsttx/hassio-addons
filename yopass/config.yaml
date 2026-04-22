@@ -1,0 +1,55 @@
+name: "Yopass"
+description: "Yopass — share end-to-end encrypted one-time secrets over HTTP. Bundles an internal memcached backend."
+url: "https://github.com/samsttx/hassio-addons/tree/main/yopass"
+version: "13.1.0"
+slug: "yopass"
+webui: "http://[HOST]:[PORT:1337]"
+arch:
+  - amd64
+  - aarch64
+init: false
+ports:
+  1337/tcp: 1337
+map:
+  - config:rw
+options:
+  max_length: 10000
+  max_file_size: 524288
+  default_expiry: "1h"
+  log_level: "info"
+  force_onetime_secrets: false
+  disable_upload: false
+  read_only: false
+  cors_allow_origin: "*"
+schema:
+  max_length: int?
+  max_file_size: int?
+  default_expiry: list(1h|1d|1w)
+  log_level: list(trace|debug|info|warn|error|fatal|panic)
+  force_onetime_secrets: bool?
+  disable_upload: bool?
+  read_only: bool?
+  disable_features: str?
+  no_language_switcher: bool?
+  cors_allow_origin: str?
+  trusted_proxies:
+    - str?
+  privacy_notice_url: str?
+  imprint_url: str?
+  prefetch_secret: bool?
+  file_store_enabled: bool?
+  cleanup_interval: str?
+  license_key: password?
+  app_name: str?
+  logo_url: str?
+  theme_light: str?
+  theme_dark: str?
+  oidc_issuer: str?
+  oidc_client_id: str?
+  oidc_client_secret: password?
+  oidc_redirect_url: str?
+  oidc_allowed_domains:
+    - str?
+  require_auth: bool?
+  frontend_url: str?
+  audit_log: bool?
