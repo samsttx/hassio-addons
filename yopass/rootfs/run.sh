@@ -98,7 +98,7 @@ fi
 # Internal backend: bundle memcached in-container so the add-on is self-contained.
 # Runs in background; yopass-server defaults to localhost:11211.
 echo "[INFO] Starting bundled memcached on 127.0.0.1:11211..."
-memcached -d -u memcached -l 127.0.0.1 -p 11211 -m 64
+memcached -d -u memcache -l 127.0.0.1 -p 11211 -m 64
 
 # Yopass always listens on the addon-exposed port
 export ADDRESS="0.0.0.0"

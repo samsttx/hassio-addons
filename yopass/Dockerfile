@@ -1,18 +1,21 @@
-FROM alpine:3.20
+FROM debian:bookworm-slim
 
-# Upstream image is distroless — no shell, no package manager. Pull the static
-# binary and bundled web assets out of it and rebuild on Alpine so we can run
-# the Supervisor-options shell bridge and bundle memcached as the backend.
+# Upstream image is distroless/base (glibc) — no shell, no package manager.
+# Pull the dynamically-linked binary and bundled web assets out of it and
+# rebuild on debian-slim so glibc resolves and we can run the Supervisor
+# shell bridge plus a bundled memcached backend.
 COPY --from=jhaals/yopass:13.1.0 /yopass-server /yopass-server
 COPY --from=jhaals/yopass:13.1.0 /public /public
 
-RUN apk add --no-cache \
+RUN apt-get update && apt-get install -y --no-install-recommends \
     bash \
     jq \
     curl \
     tzdata \
     memcached \
-    openssl
+    openssl \
+    ca-certificates \
+    && rm -rf /var/lib/apt/lists/*
 
 COPY rootfs/run.sh /run.sh
 RUN chmod a+x /run.sh
