@@ -18,9 +18,23 @@ options:
   secret: ""
   log_level: "info"
   bind_address: "0.0.0.0"
+  enable_cors: true
+  cors_origins: "app://obsidian.md, capacitor://localhost, http://localhost"
+  cors_credentials: true
+  cors_methods: "GET, PUT, POST, HEAD, DELETE"
+  require_valid_user: true
+  max_http_request_size: 4294967296
+  max_document_size: 4294967296
 schema:
   username: str
   password: password
   secret: password?
   log_level: list(debug|info|notice|warning|error|critical|none)
   bind_address: str?
+  enable_cors: bool
+  cors_origins: str
+  cors_credentials: bool
+  cors_methods: str
+  require_valid_user: bool
+  max_http_request_size: int
+  max_document_size: int

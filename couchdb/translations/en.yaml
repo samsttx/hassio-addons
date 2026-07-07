@@ -15,5 +15,26 @@ configuration:
   bind_address:
     name: Bind Address
     description: HTTP bind address. Defaults to '0.0.0.0' (all IPv4 interfaces). Use '127.0.0.1' to restrict to loopback.
+  enable_cors:
+    name: Enable CORS
+    description: Allow cross-origin requests (needed for browser/app clients like Obsidian LiveSync).
+  cors_origins:
+    name: CORS Origins
+    description: Comma-separated list of allowed origins, e.g. 'app://obsidian.md, capacitor://localhost, http://localhost'.
+  cors_credentials:
+    name: CORS Allow Credentials
+    description: Whether CORS requests may include credentials (cookies/auth headers).
+  cors_methods:
+    name: CORS Methods
+    description: Comma-separated list of allowed HTTP methods for CORS requests.
+  require_valid_user:
+    name: Require Valid User
+    description: Reject anonymous requests; every request must authenticate.
+  max_http_request_size:
+    name: Max HTTP Request Size
+    description: Maximum size in bytes of an incoming HTTP request body.
+  max_document_size:
+    name: Max Document Size
+    description: Maximum size in bytes of a single CouchDB document.
 network:
   5984/tcp: CouchDB HTTP API and Fauxton UI
