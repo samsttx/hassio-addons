@@ -10,7 +10,7 @@ This add-on runs [Apache CouchDB](https://couchdb.apache.org/) 3.4.2 in single-n
 - **log_level**: One of `debug`, `info`, `notice`, `warning`, `error`, `critical`, `none`. Defaults to `info`.
 - **bind_address**: HTTP bind address. Defaults to `0.0.0.0` (all IPv4 interfaces, required for the Supervisor port proxy). Set to `127.0.0.1` only if you will reach CouchDB through another add-on's internal network.
 - **enable_cors**: Allow cross-origin requests. Defaults to `true`. Written to both `[httpd]` and `[chttpd]` (CouchDB checks either depending on version).
-- **cors_origins**: Comma-separated list of allowed origins. Defaults to `app://obsidian.md, capacitor://localhost, http://localhost` (covers Obsidian LiveSync).
+- **cors_origins**: Comma-separated list of allowed origins, **no spaces** — CouchDB splits on comma without trimming, so a space produces an origin that never matches a real `Origin` header. Defaults to `app://obsidian.md,capacitor://localhost,http://localhost` (covers Obsidian LiveSync).
 - **cors_credentials**: Whether CORS requests may include credentials (cookies/auth headers). Defaults to `true`.
 - **cors_methods**: Comma-separated list of allowed HTTP methods for CORS requests. Defaults to `GET, PUT, POST, HEAD, DELETE`.
 - **require_valid_user**: Reject anonymous requests. Defaults to `true`.

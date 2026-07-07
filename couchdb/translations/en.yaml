@@ -20,7 +20,7 @@ configuration:
     description: Allow cross-origin requests (needed for browser/app clients like Obsidian LiveSync).
   cors_origins:
     name: CORS Origins
-    description: Comma-separated list of allowed origins, e.g. 'app://obsidian.md, capacitor://localhost, http://localhost'.
+    description: Comma-separated list of allowed origins, no spaces (CouchDB splits on comma without trimming), e.g. 'app://obsidian.md,capacitor://localhost,http://localhost'.
   cors_credentials:
     name: CORS Allow Credentials
     description: Whether CORS requests may include credentials (cookies/auth headers).

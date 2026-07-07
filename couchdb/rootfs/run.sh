@@ -53,7 +53,7 @@ fi
 LOG_LEVEL=$(jq -r '.log_level // "info"' "$CONFIG_PATH")
 BIND_ADDRESS=$(jq -r '.bind_address // "0.0.0.0"' "$CONFIG_PATH")
 ENABLE_CORS=$(jq -r '.enable_cors // true' "$CONFIG_PATH")
-CORS_ORIGINS=$(jq -r '.cors_origins // "app://obsidian.md, capacitor://localhost, http://localhost"' "$CONFIG_PATH")
+CORS_ORIGINS=$(jq -r '.cors_origins // "app://obsidian.md,capacitor://localhost,http://localhost"' "$CONFIG_PATH")
 CORS_CREDENTIALS=$(jq -r '.cors_credentials // true' "$CONFIG_PATH")
 CORS_METHODS=$(jq -r '.cors_methods // "GET, PUT, POST, HEAD, DELETE"' "$CONFIG_PATH")
 REQUIRE_VALID_USER=$(jq -r '.require_valid_user // true' "$CONFIG_PATH")

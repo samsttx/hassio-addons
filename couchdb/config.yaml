@@ -1,7 +1,7 @@
 name: "CouchDB"
 description: "Apache CouchDB — document-oriented NoSQL database with HTTP/JSON API and Fauxton web UI."
 url: "https://github.com/samsttx/hassio-addons/tree/main/couchdb"
-version: "3.4.2.2"
+version: "3.4.2.3"
 slug: "couchdb"
 webui: "http://[HOST]:[PORT:5984]/_utils/"
 arch:
@@ -19,7 +19,7 @@ options:
   log_level: "info"
   bind_address: "0.0.0.0"
   enable_cors: true
-  cors_origins: "app://obsidian.md, capacitor://localhost, http://localhost"
+  cors_origins: "app://obsidian.md,capacitor://localhost,http://localhost"
   cors_credentials: true
   cors_methods: "GET, PUT, POST, HEAD, DELETE"
   require_valid_user: true
